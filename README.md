@@ -11,4 +11,6 @@ DB_HOST=     # your postgresDB host
 DB_PORT=     # your postgresDB port
 
 ```
-Also install all requirement modules from **requirements.txt**
+Also install all requirement modules from **requirements.txt** and make all migrations 
+
+#### _Don't forget to run PostgresDB server !_
