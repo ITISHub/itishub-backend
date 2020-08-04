@@ -42,3 +42,5 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
+    def get_lessons(self):
+        return Lesson.objects.filter(course=self)
