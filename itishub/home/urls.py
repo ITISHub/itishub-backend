@@ -19,7 +19,7 @@ from .views import HomeCardListView
 
 
 urlpatterns = [
-    path('homecard/',HomeCardListView.as_view()),
+    path('homecards/',HomeCardListView.as_view()),
 ]
 
 
