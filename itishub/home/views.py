@@ -55,5 +55,5 @@ class ReviewCreateView(APIView):
         review = ReviewCreateSerializer(data=request.data)
         if review.is_valid():
             send_mail(review.data.get('email'), review.data.get('text'),
-                      env('EMAIL_HOST_USER'), ['azatpscl@gmail.com'], fail_silently=True)
+                      env('EMAIL_HOST_USER'), [env('EMAIL_CONSUMER')], fail_silently=True)
         return Response(status=201)
