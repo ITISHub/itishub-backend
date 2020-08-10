@@ -17,7 +17,7 @@ class Creator(models.Model):
 class HomeCard(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField()
-    url = models.URLField()
+    url = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
@@ -36,7 +36,7 @@ class Lesson(models.Model):
 class Course(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField()
-    url = models.URLField()
+    url = models.CharField(max_length=200)
     lessons = models.ManyToManyField(Lesson)
 
     def __str__(self):
