@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core.mail import send_mail
+import environ
 
 from .models import *
 from .serializers import *
 
 # Create your views here.
+
+env = environ.Env()
+environ.Env.read_env()
 
 class HomeCardListView(APIView):
 
@@ -49,5 +54,6 @@ class ReviewCreateView(APIView):
     def post(self,request):
         review = ReviewCreateSerializer(data=request.data)
         if review.is_valid():
-            review.save()
+            send_mail(review.data.get('email'), review.data.get('text'),
+                      env('EMAIL_HOST_USER'), ['azatpscl@gmail.com'], fail_silently=True)
         return Response(status=201)
