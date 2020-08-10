@@ -44,3 +44,10 @@ class Course(models.Model):
 
     def get_lessons(self):
         return Lesson.objects.filter(course=self)
+
+class Review(models.Model):
+    email = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.email
