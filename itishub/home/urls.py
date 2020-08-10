@@ -23,6 +23,7 @@ urlpatterns = [
     path('creators/',CreatorListView.as_view()),
     path('courses/',CourseListView.as_view()),
     path('courses/<int:pk>/',CourseView.as_view()),
+    path('review/',ReviewCreateView.as_view()),
 
 
 ]

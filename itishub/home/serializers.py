@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import HomeCard,Creator,Course,Lesson
+from .models import *
 
 class HomeCardListSerializer(serializers.ModelSerializer):
     '''Serializer for HomeCard'''
@@ -39,3 +39,9 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     lessons = LessonSerializer(source='get_lessons', many=True)
+
+class ReviewCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Review
+        fields = "__all__"
