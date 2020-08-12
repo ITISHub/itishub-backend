@@ -28,7 +28,7 @@ class Lesson(models.Model):
     description = models.TextField()
     video_url = models.URLField()
     pdf_file = models.FileField(blank=True,upload_to='media/homecards')
-    link = models.CharField(max_length=200)
+    link = models.CharField(max_length=200,default='itishub')
 
     def __str__(self):
         return self.title
