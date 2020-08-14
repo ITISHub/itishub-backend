@@ -23,12 +23,20 @@ class HomeCard(models.Model):
         return self.title
 
 
+class UsefulLink(models.Model):
+    title = models.CharField(max_length=100)
+    url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
+
 class Lesson(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     video_url = models.URLField()
     pdf_file = models.FileField(blank=True,upload_to='media/homecards')
-    link = models.CharField(max_length=200,default='itishub')
+    useful_links = models.ManyToManyField(UsefulLink,related_name="useful_links")
 
     def __str__(self):
         return self.title
@@ -52,3 +60,4 @@ class Review(models.Model):
 
     def __str__(self):
         return self.email
+
