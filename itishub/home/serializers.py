@@ -20,7 +20,7 @@ class UsefulLinkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UsefulLink
-        fields = ('url',)
+        fields = ('url','title')
 
 class LessonSerializer(serializers.ModelSerializer):
 
