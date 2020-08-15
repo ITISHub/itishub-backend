@@ -16,6 +16,11 @@ class CreatorListSerializer(serializers.ModelSerializer):
         model = Creator
         fields = "__all__"
 
+class UsefulLinkSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UsefulLink
+        fields = ('url',)
 
 class LessonSerializer(serializers.ModelSerializer):
 
@@ -23,16 +28,10 @@ class LessonSerializer(serializers.ModelSerializer):
         model = Lesson
         fields = "__all__"
 
+    useful_links = UsefulLinkSerializer(many=True)
+
 
 class CourseListSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Course
-        fields = "__all__"
-
-    lessons = LessonSerializer(source='get_lessons', many=True)
-
-class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
@@ -45,3 +44,14 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = "__all__"
+
+
+class CourseSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Course
+        fields = "__all__"
+
+    lessons = LessonSerializer(source='get_lessons', many=True)
+
+
