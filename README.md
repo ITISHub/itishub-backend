@@ -17,3 +17,5 @@ EMAIL_CONSUMER=         # email consumer (our itishub mail :) )
 Also install all requirement modules from **requirements.txt** and make all migrations 
 
 #### _Don't forget to run PostgresDB server !_
+
+## :trollface: 16.08.2020: moved from PostgresDB to SQLITE3! :trollface:
